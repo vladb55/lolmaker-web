@@ -1,7 +1,7 @@
 import { useCallback, useRef } from 'react';
 import { useAppDispatch, useAppSelector, shallowEqual } from 'src/redux/hooks';
 import { showGameMenu, setProgress } from 'src/redux/reducer';
-import { getRulesByStoryKey, getStoryByKey, getStoryKey } from 'src/utils/stories';
+import { getStoryByKey } from 'src/utils/stories';
 import {
   Root,
   Wrapper,
@@ -12,6 +12,9 @@ import {
 } from './GamePanel.styles';
 
 const getFilledText = (text: string, data: string[], pattern: string) => {
+  if (!text) {
+    return '';
+  }
   let result = text;
   for (let i = 0; i < data.length; i++) {
     result = result.replace(pattern, data[i]);
@@ -21,6 +24,7 @@ const getFilledText = (text: string, data: string[], pattern: string) => {
 
 const GamePanel = () => {
   const dispatch = useAppDispatch();
+
   const {
     progress,
     storyKey,
@@ -28,10 +32,8 @@ const GamePanel = () => {
     progress: state.reducer.progress,
     storyKey: state.reducer.storyKey,
   }), shallowEqual);
-  const rules = getRulesByStoryKey(storyKey);
-  const rule = rules[progress.step];
+
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const isFinish = progress.step === rules.length;
 
   const clearInput = () => {
     if (inputRef.current) {
@@ -59,19 +61,27 @@ const GamePanel = () => {
     return null;
   }
 
-  const story = isFinish && getStoryByKey(storyKey);
+  const story = getStoryByKey(storyKey);
+  const text = story?.text;
+  const rules = story?.rules || [];
+  const rule = rules[progress.step];
+  const isFinish = progress.step === rules.length;
 
   return (
     <Root>
       {
         isFinish ? (
-          story
+          text
             ? (
                 <Wrapper>
-                  <Text>{ getFilledText(story.text, progress.words, '%s') }</Text>
+                  <Text>{ getFilledText(text, progress.words, '%s') }</Text>
                 </Wrapper>
               )
-            : <Text>Что-то пошло не так. Скажите об этом разработчику, и он это исправит!</Text>
+            : (
+              <Wrapper>
+                <Text>Что-то пошло не так. Скажите об этом разработчику, и он это исправит!</Text>
+              </Wrapper>
+            )
         ) : (
           <Wrapper>
             <Text>{ rule }</Text>
