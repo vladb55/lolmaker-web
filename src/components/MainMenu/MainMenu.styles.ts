@@ -38,3 +38,12 @@ export const Title = styled.div`
     transform: rotate(90deg);
   }
 `;
+
+export const Author = styled.a`
+  font-size: 16px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+`;

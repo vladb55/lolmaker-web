@@ -3,6 +3,7 @@ import { useAppDispatch } from 'src/redux/hooks';
 import {
   Root,
   Title,
+  Author,
 } from './MainMenu.styles';
 import { startGame } from 'src/redux/reducer';
 import { getStoryKey } from 'src/utils/stories';
@@ -33,6 +34,12 @@ const MainMenu = () => {
       >
         Начать игру!
       </button>
+      <Author
+        href='https://github.com/vladb55/lolmaker-web'
+        target='_blank'
+      >
+        GitHub
+      </Author>
     </Root>
   );
 };
