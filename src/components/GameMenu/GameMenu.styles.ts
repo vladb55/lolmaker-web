@@ -15,10 +15,10 @@ export const Root = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 576px;
+  max-width: 480px;
   background-color: #fff;
   border-radius: 8px;
-  padding: 15px 20px;
+  padding: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -28,6 +28,12 @@ export const Root = styled.div`
 
   & button {
     width: 100%;
-    margin-bottom: 10px;
+  }
+  & button + button {
+    margin-top: 20px;
+  }
+
+  @media screen and (max-width: 390px) {
+    max-width: 320px;
   }
 `;

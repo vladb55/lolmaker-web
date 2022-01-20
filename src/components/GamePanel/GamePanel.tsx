@@ -76,11 +76,21 @@ const GamePanel = () => {
           <Wrapper>
             <Text>{ rule }</Text>
             <Input ref={inputRef} />
-            <Button onClick={handleNextClick}>Далее</Button>
+            <Button
+              className='btn btn-primary'
+              onClick={handleNextClick}
+            >
+              Далее
+            </Button>
           </Wrapper>
         )
       }
-      <MenuButton onClick={handleMenuClick}>Меню</MenuButton>
+      <MenuButton
+        className='btn btn-primary'
+        onClick={handleMenuClick}
+      >
+        Меню
+      </MenuButton>
     </Root>
   );
 };

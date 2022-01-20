@@ -15,9 +15,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Text = styled.div`
+export const Text = styled.p`
   color: #333;
-  font-family: sans-serif;
   font-size: 30px;
   text-align: center;
 `;
@@ -29,21 +28,15 @@ export const Input = styled.input`
   padding: 10px 20px;
   width: 100%;
   max-width: 576px;
-  margin: 20px auto;
+  margin: 50px auto;
   font-size: 24px;
   text-align: center;
 `;
 
 export const Button = styled.button`
-  outline: none;
-  border: 0;
   max-width: 200px;
   margin-right: auto;
   margin-left: auto;
-  padding: 8px;
-  color: #333;
-  font-size: 20px;
-  cursor: pointer;
 `;
 
 export const MenuButton = styled(Button)`

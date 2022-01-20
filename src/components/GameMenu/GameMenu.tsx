@@ -32,15 +32,15 @@ const GameMenu = () => {
       <Layer />
       <Root>
         <button
-          className='btn'
+          className='btn btn-primary'
           onClick={handleRetryClick}
         >Ещё раз!</button>
         <button
-          className='btn'
+          className='btn btn-primary'
           onClick={handleMenuClick}
         >В главное меню</button>
         <button
-          className='btn'
+          className='btn btn-primary'
           onClick={handleContinueClick}
         >Продолжить</button>
       </Root>

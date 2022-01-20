@@ -2,9 +2,12 @@ import { useCallback } from 'react';
 import { useAppDispatch } from 'src/redux/hooks';
 import {
   Root,
+  Title,
 } from './MainMenu.styles';
 import { startGame } from 'src/redux/reducer';
 import { getStoryKey } from 'src/utils/stories';
+
+const TITLE_LETTERS = ['l', 'o', 'l', 'm', 'a', 'k', 'e', 'r'];
 
 const MainMenu = () => {
   const dispatch = useAppDispatch();
@@ -17,11 +20,18 @@ const MainMenu = () => {
   }, [dispatch]);
   return (
     <Root>
+      <Title>
+        {
+          TITLE_LETTERS.map((letter, index) => (
+            <span key={index}>{letter}</span>
+          ))
+        }
+      </Title>
       <button 
-        className='btn'
+        className='btn btn-primary'
         onClick={handleClick}
       >
-        Start the game
+        Начать игру!
       </button>
     </Root>
   );
