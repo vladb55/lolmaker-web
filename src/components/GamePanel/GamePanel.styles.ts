@@ -19,6 +19,8 @@ export const Text = styled.p`
   color: #333;
   font-size: 30px;
   text-align: center;
+  overflow: auto;
+  max-height: 500px;
 `;
 
 export const Input = styled.input`
