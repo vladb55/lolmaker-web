@@ -1,11 +1,13 @@
 {
-  "name": "lolmaker",
+  "name": "lolmaker-web",
   "author": "vladb55",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "lint": "next lint"
   },
   "dependencies": {
